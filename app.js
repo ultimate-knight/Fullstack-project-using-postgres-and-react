@@ -3,7 +3,7 @@ const {connectdB}=require("./src/db/fitness_tracker")
 
 const app=express()
 
-PORT=8901
+PORT=3000
 
 app.get("/",(req,res)=>{
     res.send("hello world")
