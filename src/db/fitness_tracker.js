@@ -1,11 +1,12 @@
+require("dotenv").config();
 const {Client}=require("pg")
 
 const client=new Client({
-    user:"baqtiyaar",
-    database:"fitness_tracker",
-    password:"Canton@312",
-    host:"localhost",
-    port:5432
+    user:process.env.DB_USER,
+    database:process.env.DB_NAME,
+    password:process.env.DB_PASSWORD,
+    host:process.env.DB_HOST,
+    port:process.env.DB_PORT
 })
 
 async function connectdB(){
@@ -18,3 +19,4 @@ async function connectdB(){
 }
 
 module.exports={connectdB,client}
+
