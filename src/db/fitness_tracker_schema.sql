@@ -456,3 +456,115 @@ postgres=# select * from fitness_tracker;
   7 | barbell_press    |   34 | 2023-09-28 | 2026-01-14 21:53:06.717294 |  56 |        |
   9 | pullups          |   34 | 2025-09-30 | 2026-01-14 22:23:57.492257 |  89 |     78 | do with full intensity
 (7 rows)
+
+postgres=# \d fitness_tracker
+                        Table "public.fitness_tracker"
+    Column     |            Type             | Collation | Nullable | Default
+---------------+-----------------------------+-----------+----------+---------
+ id            | integer                     |           | not null |
+ exercise_name | character varying(50)       |           |          |
+ sets          | integer                     |           | not null |
+ date_added    | date                        |           |          |
+ created_at    | timestamp without time zone |           |          |
+ rep           | integer                     |           |          |
+ weight        | integer                     |           |          |
+ notes         | character varying(200)      |           |          |
+Indexes:
+    "fitness_pkey" PRIMARY KEY, btree (id)
+
+postgres=# ALTER TABLE fitness_tracker ALTER COLUMN weight TYPE numeric(5,2);
+ALTER TABLE
+postgres=# \d fitness_tracker
+                        Table "public.fitness_tracker"
+    Column     |            Type             | Collation | Nullable | Default
+---------------+-----------------------------+-----------+----------+---------
+ id            | integer                     |           | not null |
+ exercise_name | character varying(50)       |           |          |
+ sets          | integer                     |           | not null |
+ date_added    | date                        |           |          |
+ created_at    | timestamp without time zone |           |          |
+ rep           | integer                     |           |          |
+ weight        | numeric(5,2)                |           |          |
+ notes         | character varying(200)      |           |          |
+Indexes:
+    "fitness_pkey" PRIMARY KEY, btree (id)
+
+postgres=# \d fitness_tracker
+                        Table "public.fitness_tracker"
+    Column     |            Type             | Collation | Nullable | Default
+---------------+-----------------------------+-----------+----------+---------
+ id            | integer                     |           | not null |
+ exercise_name | character varying(50)       |           |          |
+ sets          | integer                     |           | not null |
+ date_added    | date                        |           |          |
+ created_at    | timestamp without time zone |           |          |
+ rep           | integer                     |           |          |
+ weight        | numeric(5,2)                |           |          |
+ notes         | character varying(200)      |           |          |
+Indexes:
+    "fitness_pkey" PRIMARY KEY, btree (id)
+
+postgres=# \d database
+Did not find any relation named "database".
+postgres=# \d fitness
+Did not find any relation named "fitness".
+postgres=# \dt
+              List of relations
+ Schema |      Name       | Type  |  Owner
+--------+-----------------+-------+----------
+ public | blain           | table | postgres
+ public | fitness_tracker | table | postgres
+ public | restaurant      | table | postgres
+ public | reviews         | table | postgres
+(4 rows)
+
+postgres=# GRANT ALL PRIVILEGES ON TABLE fitness_tracker TO baqtiyaar;
+GRANT
+postgres=# ALTER TABLE fitness_tracker
+ALTER COLUMN id
+ADD GENERATED ALWAYS AS IDENTITY;
+ALTER TABLE
+postgres=# select * from fitness_tracker;
+ id  |   exercise_name    | sets | date_added |     created_at      | rep | weight |         notes
+-----+--------------------+------+------------+---------------------+-----+--------+-----------------------
+  81 | Squats             |    4 | 2024-11-18 | 2024-11-18 09:15:23 |   8 |  60.00 | Felt strong today
+  82 | Bench Press        |    3 | 2024-11-18 | 2024-11-18 09:35:47 |  10 |  50.00 |
+  83 | Deadlifts          |    3 | 2024-11-20 | 2024-11-20 10:22:15 |   6 |  80.00 | Good form
+  84 | Barbell Rows       |    4 | 2024-11-20 | 2024-11-20 10:45:33 |  10 |  45.00 |
+  85 | Overhead Press     |    3 | 2024-11-22 | 2024-11-22 08:50:12 |   8 |  35.00 |
+  86 | Squats             |    4 | 2024-11-25 | 2024-11-25 09:10:44 |   8 |  62.50 |
+  87 | Bench Press        |    4 | 2024-11-25 | 2024-11-25 09:28:56 |   8 |  52.50 | Added extra set
+  88 | Pull-ups           |    3 | 2024-11-27 | 2024-11-27 10:05:21 |   8 |   0.00 | Bodyweight only
+  89 | Deadlifts          |    3 | 2024-11-27 | 2024-11-27 10:33:48 |   6 |  85.00 |
+  90 | Barbell Rows       |    4 | 2024-11-29 | 2024-11-29 09:42:17 |  10 |  47.50 |
+  91 | Overhead Press     |    3 | 2024-12-02 | 2024-12-02 08:55:39 |   8 |  37.50 | Struggled on last set
+  92 | Squats             |    5 | 2024-12-02 | 2024-12-02 09:18:24 |   6 |  65.00 |
+  93 | Bench Press        |    4 | 2024-12-04 | 2024-12-04 09:25:51 |   8 |  55.00 |
+  94 | Lunges             |    3 | 2024-12-04 | 2024-12-04 09:48:03 |  12 |  20.00 | Per leg
+  95 | Deadlifts          |    4 | 2024-12-06 | 2024-12-06 10:12:36 |   5 |  90.00 | New PR!
+  96 | Lat Pulldowns      |    3 | 2024-12-06 | 2024-12-06 10:38:42 |  12 |  55.00 |
+  97 | Barbell Rows       |    4 | 2024-12-09 | 2024-12-09 09:52:18 |   8 |  50.00 |
+  98 | Overhead Press     |    4 | 2024-12-09 | 2024-12-09 10:15:27 |   6 |  40.00 |
+  99 | Squats             |    4 | 2024-12-11 | 2024-12-11 09:08:55 |   8 |  67.50 | Solid session
+ 100 | Bench Press        |    4 | 2024-12-11 | 2024-12-11 09:32:41 |   8 |  57.50 |
+ 101 | Romanian Deadlifts |    3 | 2024-12-13 | 2024-12-13 10:20:13 |  10 |  60.00 |
+ 102 | Pull-ups           |    3 | 2024-12-13 | 2024-12-13 10:44:29 |  10 |   5.00 | Added weight belt
+ 103 | Deadlifts          |    3 | 2024-12-16 | 2024-12-16 09:58:37 |   6 |  92.50 |
+ 104 | Barbell Rows       |    4 | 2024-12-16 | 2024-12-16 10:22:54 |   8 |  52.50 |
+ 105 | Overhead Press     |    4 | 2024-12-18 | 2024-12-18 08:47:16 |   6 |  42.50 | Felt easier today
+ 106 | Squats             |    5 | 2024-12-18 | 2024-12-18 09:11:33 |   5 |  70.00 |
+ 107 | Bench Press        |    5 | 2024-12-20 | 2024-12-20 09:35:48 |   6 |  60.00 |
+ 108 | Leg Press          |    4 | 2024-12-20 | 2024-12-20 09:58:22 |  12 | 120.00 |
+ 109 | Deadlifts          |    4 | 2024-12-23 | 2024-12-23 10:15:07 |   5 |  95.00 | Christmas week grind
+ 110 | Lat Pulldowns      |    4 | 2024-12-23 | 2024-12-23 10:41:52 |  10 |  60.00 |
+ 111 | Squats             |    4 | 2024-12-27 | 2024-12-27 09:22:34 |   8 |  72.50 |
+ 112 | Overhead Press     |    4 | 2024-12-27 | 2024-12-27 09:48:19 |   6 |  45.00 | Hit all reps!
+ 113 | Bench Press        |    4 | 2024-12-30 | 2024-12-30 09:14:26 |   8 |  62.50 |
+ 114 | Barbell Rows       |    4 | 2024-12-30 | 2024-12-30 09:37:41 |   8 |  55.00 | End of year strong
+ 115 | Deadlifts          |    3 | 2025-01-03 | 2025-01-03 10:05:58 |   6 |  97.50 |
+ 116 | Squats             |    5 | 2025-01-06 | 2025-01-06 09:19:12 |   5 |  75.00 | New year gains
+ 117 | Bench Press        |    4 | 2025-01-08 | 2025-01-08 09:27:45 |   8 |  65.00 |
+ 118 | Pull-ups           |    4 | 2025-01-10 | 2025-01-10 10:12:33 |   8 |   7.50 |
+ 119 | Overhead Press     |    4 | 2025-01-13 | 2025-01-13 08:52:21 |   6 |  47.50 | Feeling strong
+ 120 | Deadlifts          |    4 | 2025-01-15 | 2025-01-15 10:28:47 |   5 | 100.00 | Triple digits!
+(40 rows)
