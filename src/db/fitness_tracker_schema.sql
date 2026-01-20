@@ -568,3 +568,160 @@ postgres=# select * from fitness_tracker;
  119 | Overhead Press     |    4 | 2025-01-13 | 2025-01-13 08:52:21 |   6 |  47.50 | Feeling strong
  120 | Deadlifts          |    4 | 2025-01-15 | 2025-01-15 10:28:47 |   5 | 100.00 | Triple digits!
 (40 rows)
+
+postgres=# select * from fitness_tracker;
+ id  |   exercise_name    | sets | date_added |     created_at      | rep | weight |        notes
+-----+--------------------+------+------------+---------------------+-----+--------+----------------------
+ 533 | Bench Press        |    4 | 2024-12-04 | 2024-12-04 09:25:51 |   8 |  55.00 |
+ 534 | Lunges             |    3 | 2024-12-04 | 2024-12-04 09:48:03 |  12 |  20.00 | Per leg
+ 535 | Deadlifts          |    4 | 2024-12-06 | 2024-12-06 10:12:36 |   5 |  90.00 | New PR!
+ 536 | Lat Pulldowns      |    3 | 2024-12-06 | 2024-12-06 10:38:42 |  12 |  55.00 |
+ 537 | Barbell Rows       |    4 | 2024-12-09 | 2024-12-09 09:52:18 |   8 |  50.00 |
+ 538 | Overhead Press     |    4 | 2024-12-09 | 2024-12-09 10:15:27 |   6 |  40.00 |
+ 539 | Squats             |    4 | 2024-12-11 | 2024-12-11 09:08:55 |   8 |  67.50 | Solid session
+ 540 | Bench Press        |    4 | 2024-12-11 | 2024-12-11 09:32:41 |   8 |  57.50 |
+ 541 | Romanian Deadlifts |    3 | 2024-12-13 | 2024-12-13 10:20:13 |  10 |  60.00 |
+ 542 | Pull-ups           |    3 | 2024-12-13 | 2024-12-13 10:44:29 |  10 |   5.00 | Added weight belt
+ 543 | Deadlifts          |    3 | 2024-12-16 | 2024-12-16 09:58:37 |   6 |  92.50 |
+ 544 | Barbell Rows       |    4 | 2024-12-16 | 2024-12-16 10:22:54 |   8 |  52.50 |
+ 545 | Overhead Press     |    4 | 2024-12-18 | 2024-12-18 08:47:16 |   6 |  42.50 | Felt easier today
+ 546 | Squats             |    5 | 2024-12-18 | 2024-12-18 09:11:33 |   5 |  70.00 |
+ 547 | Bench Press        |    5 | 2024-12-20 | 2024-12-20 09:35:48 |   6 |  60.00 |
+ 548 | Leg Press          |    4 | 2024-12-20 | 2024-12-20 09:58:22 |  12 | 120.00 |
+ 549 | Deadlifts          |    4 | 2024-12-23 | 2024-12-23 10:15:07 |   5 |  95.00 | Christmas week grind
+ 550 | Lat Pulldowns      |    4 | 2024-12-23 | 2024-12-23 10:41:52 |  10 |  60.00 |
+ 551 | Squats             |    4 | 2024-12-27 | 2024-12-27 09:22:34 |   8 |  72.50 |
+ 552 | Overhead Press     |    4 | 2024-12-27 | 2024-12-27 09:48:19 |   6 |  45.00 | Hit all reps!
+ 553 | Bench Press        |    4 | 2024-12-30 | 2024-12-30 09:14:26 |   8 |  62.50 |
+ 554 | Barbell Rows       |    4 | 2024-12-30 | 2024-12-30 09:37:41 |   8 |  55.00 | End of year strong
+ 555 | Deadlifts          |    3 | 2025-01-03 | 2025-01-03 10:05:58 |   6 |  97.50 |
+ 556 | Squats             |    5 | 2025-01-06 | 2025-01-06 09:19:12 |   5 |  75.00 | New year gains
+ 557 | Bench Press        |    4 | 2025-01-08 | 2025-01-08 09:27:45 |   8 |  65.00 |
+ 558 | Pull-ups           |    4 | 2025-01-10 | 2025-01-10 10:12:33 |   8 |   7.50 |
+ 559 | Overhead Press     |    4 | 2025-01-13 | 2025-01-13 08:52:21 |   6 |  47.50 | Feeling strong
+ 560 | Deadlifts          |    4 | 2025-01-15 | 2025-01-15 10:28:47 |   5 | 100.00 | Triple digits!
+(28 rows)
+
+postgres=# select * from fitness_tracker where id=524;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# select * from fitness_tracker where id=533;
+ id  | exercise_name | sets | date_added |     created_at      | rep | weight | notes
+-----+---------------+------+------------+---------------------+-----+--------+-------
+ 533 | Bench Press   |    4 | 2024-12-04 | 2024-12-04 09:25:51 |   8 |  55.00 |
+(1 row)
+
+postgres=# select * from fitness_tracker where id=554;
+ id  | exercise_name | sets | date_added |     created_at      | rep | weight |       notes
+-----+---------------+------+------------+---------------------+-----+--------+--------------------
+ 554 | Barbell Rows  |    4 | 2024-12-30 | 2024-12-30 09:37:41 |   8 |  55.00 | End of year strong
+(1 row)
+
+postgres=# delete from fitness_tracker where id=554;
+DELETE 1
+postgres=# select * from fitness_tracker where id=554;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# select * from fitness_tracker where id=890;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# select * from fitness_tracker where id=551;
+ id  | exercise_name | sets | date_added |     created_at      | rep | weight | notes
+-----+---------------+------+------------+---------------------+-----+--------+-------
+ 551 | Squats        |    4 | 2024-12-27 | 2024-12-27 09:22:34 |   8 |  72.50 |
+(1 row)
+
+postgres=# delete from fitness_tracker where id=551;
+DELETE 1
+postgres=# delete from fitness_tracker where id=552;
+DELETE 1
+postgres=# delete from fitness_tracker where id=553;
+DELETE 1
+postgres=# delete from fitness_tracker where id=554;
+DELETE 0
+postgres=# delete from fitness_tracker where id=555;
+DELETE 1
+postgres=# delete from fitness_tracker where id=558;
+DELETE 1
+postgres=# select * from fitness_tracker where id=551;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# select * from fitness_tracker where id=552;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# select * from fitness_tracker where id=553;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# select * from fitness_tracker where id=554;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# select * from fitness_tracker where id=555;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# select * from fitness_tracker where id=558;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# select * from fitness_tracker where id=536;
+ id  | exercise_name | sets | date_added |     created_at      | rep | weight | notes
+-----+---------------+------+------------+---------------------+-----+--------+-------
+ 536 | Lat Pulldowns |    3 | 2024-12-06 | 2024-12-06 10:38:42 |  12 |  55.00 |
+(1 row)
+
+postgres=# select * from fitness_tracker where id=550;
+ id  | exercise_name | sets | date_added |     created_at      | rep | weight | notes
+-----+---------------+------+------------+---------------------+-----+--------+-------
+ 550 | Lat Pulldowns |    4 | 2024-12-23 | 2024-12-23 10:41:52 |  10 |  60.00 |
+(1 row)
+
+postgres=# delete from fitness_tracker where id=550;
+DELETE 1
+postgres=# select * from fitness_tracker where id=550;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+-- Deleted this below  workouts using postman and tested in database
+postgres=# select * from fitness_tracker where id=533;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# select * from fitness_tracker where id=534;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# select * from fitness_tracker where id=536;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# select * from fitness_tracker where id=537;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# select * from fitness_tracker where id=538;
+ id | exercise_name | sets | date_added | created_at | rep | weight | notes
+----+---------------+------+------------+------------+-----+--------+-------
+(0 rows)
+
+postgres=# B
