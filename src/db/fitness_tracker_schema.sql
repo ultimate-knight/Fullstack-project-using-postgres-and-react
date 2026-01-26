@@ -725,3 +725,110 @@ postgres=# select * from fitness_tracker where id=538;
 (0 rows)
 
 postgres=# B
+
+
+postgres=# select * from fitness_tracker;
+ id  |   exercise_name    | sets | date_added |     created_at      | rep | weight |        notes
+-----+--------------------+------+------------+---------------------+-----+--------+----------------------
+ 539 | Squats             |    4 | 2024-12-11 | 2024-12-11 09:08:55 |   8 |  67.50 | Solid session
+ 540 | Bench Press        |    4 | 2024-12-11 | 2024-12-11 09:32:41 |   8 |  57.50 |
+ 541 | Romanian Deadlifts |    3 | 2024-12-13 | 2024-12-13 10:20:13 |  10 |  60.00 |
+ 542 | Pull-ups           |    3 | 2024-12-13 | 2024-12-13 10:44:29 |  10 |   5.00 | Added weight belt
+ 543 | Deadlifts          |    3 | 2024-12-16 | 2024-12-16 09:58:37 |   6 |  92.50 |
+ 544 | Barbell Rows       |    4 | 2024-12-16 | 2024-12-16 10:22:54 |   8 |  52.50 |
+ 545 | Overhead Press     |    4 | 2024-12-18 | 2024-12-18 08:47:16 |   6 |  42.50 | Felt easier today
+ 546 | Squats             |    5 | 2024-12-18 | 2024-12-18 09:11:33 |   5 |  70.00 |
+ 547 | Bench Press        |    5 | 2024-12-20 | 2024-12-20 09:35:48 |   6 |  60.00 |
+ 548 | Leg Press          |    4 | 2024-12-20 | 2024-12-20 09:58:22 |  12 | 120.00 |
+ 549 | Deadlifts          |    4 | 2024-12-23 | 2024-12-23 10:15:07 |   5 |  95.00 | Christmas week grind
+ 556 | Squats             |    5 | 2025-01-06 | 2025-01-06 09:19:12 |   5 |  75.00 | New year gains
+ 557 | Bench Press        |    4 | 2025-01-08 | 2025-01-08 09:27:45 |   8 |  65.00 |
+ 559 | Overhead Press     |    4 | 2025-01-13 | 2025-01-13 08:52:21 |   6 |  47.50 | Feeling strong
+ 560 | Deadlifts          |    4 | 2025-01-15 | 2025-01-15 10:28:47 |   5 | 100.00 | Triple digits!
+(15 rows)
+
+postgres=# select * from fitness_tracker;
+ id  |   exercise_name    | sets | date_added |     created_at      | rep | weight |        notes
+-----+--------------------+------+------------+---------------------+-----+--------+----------------------
+ 567 | Bench Press        |    4 | 2024-12-04 | 2024-12-04 00:00:00 |   8 |  55.00 |
+ 568 | Lunges             |    3 | 2024-12-04 | 2024-12-04 00:00:00 |  12 |  20.00 | Per leg
+ 569 | Deadlifts          |    4 | 2024-12-06 | 2024-12-06 00:00:00 |   5 |  90.00 | New PR!
+ 570 | Lat Pulldowns      |    3 | 2024-12-06 | 2024-12-06 00:00:00 |  12 |  55.00 |
+ 571 | Barbell Rows       |    4 | 2024-12-09 | 2024-12-09 00:00:00 |   8 |  50.00 |
+ 572 | Overhead Press     |    4 | 2024-12-09 | 2024-12-09 00:00:00 |   6 |  40.00 |
+ 539 | Squats             |    4 | 2024-12-11 | 2024-12-11 09:08:55 |   8 |  67.50 | Solid session
+ 540 | Bench Press        |    4 | 2024-12-11 | 2024-12-11 09:32:41 |   8 |  57.50 |
+ 541 | Romanian Deadlifts |    3 | 2024-12-13 | 2024-12-13 10:20:13 |  10 |  60.00 |
+ 542 | Pull-ups           |    3 | 2024-12-13 | 2024-12-13 10:44:29 |  10 |   5.00 | Added weight belt
+ 543 | Deadlifts          |    3 | 2024-12-16 | 2024-12-16 09:58:37 |   6 |  92.50 |
+ 544 | Barbell Rows       |    4 | 2024-12-16 | 2024-12-16 10:22:54 |   8 |  52.50 |
+ 545 | Overhead Press     |    4 | 2024-12-18 | 2024-12-18 08:47:16 |   6 |  42.50 | Felt easier today
+ 546 | Squats             |    5 | 2024-12-18 | 2024-12-18 09:11:33 |   5 |  70.00 |
+ 547 | Bench Press        |    5 | 2024-12-20 | 2024-12-20 09:35:48 |   6 |  60.00 |
+ 548 | Leg Press          |    4 | 2024-12-20 | 2024-12-20 09:58:22 |  12 | 120.00 |
+ 549 | Deadlifts          |    4 | 2024-12-23 | 2024-12-23 10:15:07 |   5 |  95.00 | Christmas week grind
+ 556 | Squats             |    5 | 2025-01-06 | 2025-01-06 09:19:12 |   5 |  75.00 | New year gains
+ 557 | Bench Press        |    4 | 2025-01-08 | 2025-01-08 09:27:45 |   8 |  65.00 |
+ 559 | Overhead Press     |    4 | 2025-01-13 | 2025-01-13 08:52:21 |   6 |  47.50 | Feeling strong
+ 560 | Deadlifts          |    4 | 2025-01-15 | 2025-01-15 10:28:47 |   5 | 100.00 | Triple digits!
+(21 rows)
+
+-- from 567 to 571 are deleted ids they have been added again using postman
+
+postgres=# select * from fitness_tracker;
+ id  |   exercise_name    | sets | date_added |     created_at      | rep | weight |        notes
+-----+--------------------+------+------------+---------------------+-----+--------+----------------------
+ 567 | Bench Press        |    4 | 2024-12-04 | 2024-12-04 00:00:00 |   8 |  55.00 |
+ 568 | Lunges             |    3 | 2024-12-04 | 2024-12-04 00:00:00 |  12 |  20.00 | Per leg
+ 569 | Deadlifts          |    4 | 2024-12-06 | 2024-12-06 00:00:00 |   5 |  90.00 | New PR!
+ 570 | Lat Pulldowns      |    3 | 2024-12-06 | 2024-12-06 00:00:00 |  12 |  55.00 |
+ 571 | Barbell Rows       |    4 | 2024-12-09 | 2024-12-09 00:00:00 |   8 |  50.00 |
+ 572 | Overhead Press     |    4 | 2024-12-09 | 2024-12-09 00:00:00 |   6 |  40.00 |
+ 539 | Squats             |    4 | 2024-12-11 | 2024-12-11 09:08:55 |   8 |  67.50 | Solid session
+ 540 | Bench Press        |    4 | 2024-12-11 | 2024-12-11 09:32:41 |   8 |  57.50 |
+ 541 | Romanian Deadlifts |    3 | 2024-12-13 | 2024-12-13 10:20:13 |  10 |  60.00 |
+ 542 | Pull-ups           |    3 | 2024-12-13 | 2024-12-13 10:44:29 |  10 |   5.00 | Added weight belt
+ 543 | Deadlifts          |    3 | 2024-12-16 | 2024-12-16 09:58:37 |   6 |  92.50 |
+ 544 | Barbell Rows       |    4 | 2024-12-16 | 2024-12-16 10:22:54 |   8 |  52.50 |
+ 545 | Overhead Press     |    4 | 2024-12-18 | 2024-12-18 08:47:16 |   6 |  42.50 | Felt easier today
+ 546 | Squats             |    5 | 2024-12-18 | 2024-12-18 09:11:33 |   5 |  70.00 |
+ 547 | Bench Press        |    5 | 2024-12-20 | 2024-12-20 09:35:48 |   6 |  60.00 |
+ 548 | Leg Press          |    4 | 2024-12-20 | 2024-12-20 09:58:22 |  12 | 120.00 |
+ 549 | Deadlifts          |    4 | 2024-12-23 | 2024-12-23 10:15:07 |   5 |  95.00 | Christmas week grind
+ 556 | Squats             |    5 | 2025-01-06 | 2025-01-06 09:19:12 |   5 |  75.00 | New year gains
+ 557 | Bench Press        |    4 | 2025-01-08 | 2025-01-08 09:27:45 |   8 |  65.00 |
+ 559 | Overhead Press     |    4 | 2025-01-13 | 2025-01-13 08:52:21 |   6 |  47.50 | Feeling strong
+ 560 | Deadlifts          |    4 | 2025-01-15 | 2025-01-15 10:28:47 |   5 | 100.00 | Triple digits!
+(21 rows)
+
+postgres=# select * from fitness_tracker where id=567;
+ id  | exercise_name | sets | date_added |     created_at      | rep | weight | notes
+-----+---------------+------+------------+---------------------+-----+--------+-------
+ 567 | Bench Press   |    4 | 2024-12-04 | 2024-12-04 00:00:00 |   8 |  55.00 |
+(1 row)
+
+postgres=# select * from fitness_tracker where id=568;
+ id  | exercise_name | sets | date_added |     created_at      | rep | weight |  notes
+-----+---------------+------+------------+---------------------+-----+--------+---------
+ 568 | Lunges        |    3 | 2024-12-04 | 2024-12-04 00:00:00 |  12 |  20.00 | Per leg
+(1 row)
+
+postgres=# select * from fitness_tracker where id=569;
+ id  | exercise_name | sets | date_added |     created_at      | rep | weight |  notes
+-----+---------------+------+------------+---------------------+-----+--------+---------
+ 569 | Deadlifts     |    4 | 2024-12-06 | 2024-12-06 00:00:00 |   5 |  90.00 | New PR!
+(1 row)
+
+postgres=# select * from fitness_tracker where id=570;
+ id  | exercise_name | sets | date_added |     created_at      | rep | weight | notes
+-----+---------------+------+------------+---------------------+-----+--------+-------
+ 570 | Lat Pulldowns |    3 | 2024-12-06 | 2024-12-06 00:00:00 |  12 |  55.00 |
+(1 row)
+
+postgres=# select * from fitness_tracker where id=571;
+ id  | exercise_name | sets | date_added |     created_at      | rep | weight | notes
+-----+---------------+------+------------+---------------------+-----+--------+-------
+ 571 | Barbell Rows  |    4 | 2024-12-09 | 2024-12-09 00:00:00 |   8 |  50.00 |
+(1 row)
+
+postgres=#
